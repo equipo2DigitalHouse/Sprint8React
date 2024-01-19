@@ -31,6 +31,7 @@ render() {
     
     return (
         <div>
+            
             <h2>Users</h2>
             {this.state.user && this.state.user.map((user) => (
                 <div key={user.id}>
@@ -39,7 +40,7 @@ render() {
                     <p>Email: {user.email} </p>
                     <p>Nombre de Usuario: {user.name} </p>
                     <img src={user.avatar}></img>
-                    
+                    <hr/>
                 </div>
             ))}
         </div>
