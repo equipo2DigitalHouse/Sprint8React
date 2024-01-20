@@ -28,25 +28,30 @@ componentDidMount(){
 
 
 render() {
-    
+    const { product } = this.state;
+
     return (
-        <div>
+      <div>
+        {product.length === 0 ? (
+          <p style={{ textAlign: "center" }}>Cargando...</p>
+        ) : (
+          <div>
             <h2>Products</h2>
-            {this.state.product && this.state.product.map((product) => (
-                <div key={product.id}>
-                    <p>Nombre: {product.product_name} </p>
-                    <p>Descripción: {product.description} </p>
-                    <p>Fecha: {product.date} </p>
-                    <p>Precio: {product.price} </p>
-                    <img src={product.image}></img>
-                    
-                </div>
+            {product.map((product) => (
+              <div key={product.id}>
+                <p><b>Nombre:</b> {product.product_name}</p>
+                <p><b>Descripción:</b> {product.description}</p>
+                <p><b>Fecha:</b> {product.date}</p>
+                <p><b>Precio:</b> {product.price}</p>
+                <img src={product.image} alt={product.product_name} />
+                <hr />
+              </div>
             ))}
-        </div>
+          </div>
+        )}
+      </div>
     );
+  }
 }
 
-
-}
 export default ProductsApi;
-    
