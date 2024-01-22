@@ -28,26 +28,33 @@ componentDidMount(){
 
 
 render() {
+    const { user } = this.state;
     
     return (
         <div>
-            
-            <h2>Users</h2>
-            {this.state.user && this.state.user.map((user) => (
-                <div key={user.id}>
-                    <p>Nombre: {user.name} </p>
-                    <p>Apellido: {user.last_name} </p>
-                    <p>Email: {user.email} </p>
-                    <p>Nombre de Usuario: {user.name} </p>
-                    <img src={user.avatar}></img>
-                    <hr/>
-                </div>
+            {user.length === 0 ? (
+          <p style={{ textAlign: "center" }}>Cargando...</p>
+        ) : (
+            <div>
+                <h2>Users</h2>
+                {this.state.user && this.state.user.map((user) => (
+                    <div key={user.id}>
+                        <p>Nombre: {user.name} </p>
+                        <p>Apellido: {user.last_name} </p>
+                        <p>Email: {user.email} </p>
+                        <p>Nombre de Usuario: {user.name} </p>
+                        <img src={user.avatar}></img>
+                        <hr />
+              </div>
             ))}
-        </div>
+          </div>
+        )}
+      </div>
     );
+  }
 }
 
 
-}
+
 export default UsuariosApi;
     
